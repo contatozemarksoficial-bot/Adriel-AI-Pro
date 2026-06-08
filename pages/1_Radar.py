@@ -1,85 +1,61 @@
 import streamlit as st
-import pandas as pd
 
-# 🚨 REGRA SUPREMA: O set_page_config precisa ser a PRIMEIRA instrução executável do código!
-st.set_page_config(page_title="Adriel-AI Pro - Radar de Produtos", layout="wide", initial_sidebar_state="expanded")
+# Configuração premium de layout amplo (Força a barra lateral nativa a nascer fechada)
+st.set_page_config(page_title="Adriel-AI Pro - Core Dashboard", layout="wide", initial_sidebar_state="collapsed")
 
-# Reaplica o estilo Black de luxo e remove as margens nativas feias do topo
+# INJEÇÃO DE ÁUDIO REAL VIA JAVASCRIPT (O ROBÔ PRO FALA AO ENTRAR NA HOME)
+texto_boas_vindas = "Olá, Comandante José Marques da Silva! O núcleo de Inteligência Artificial tridimensional está ativo nos servidores do Adriel A I Pro. Selecione os módulos numerados na barra lateral."
+
+st.markdown(f"""
+<script>
+    document.addEventListener('click', function() {{
+        if (!window.audioDisparado) {{
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = "{texto_boas_vindas}";
+            msg.lang = "pt-BR";
+            msg.rate = 1.0;
+            msg.pitch = 0.92;
+            window.speechSynthesis.speak(msg);
+            window.audioDisparado = true;
+        }}
+    }});
+</script>
+""", unsafe_allow_html=True)
+
+# INJEÇÃO DE CSS DE ALTO LUXO (ESTILO BLACK E SINAL PISCANTE HOVER NO MENU LATERAL)
 st.markdown("""
 <style>
-    /* Fundo Escuro Fiel ao Print da Imagem */
-    .stApp { 
-        background-color: #0b111e !important; 
-        color: #ffffff !important; 
+    /* 🌌 Fundo Escuro Fiel ao Print do Leonardo AI */
+    .stApp { background-color: #0b111e !important; color: #ffffff !important; }
+    .block-container { padding-top: 1rem !important; padding-bottom: 0rem !important; }
+    
+    /* 🚨 FORÇA A OCULTAÇÃO ABSOLUTA DA BARRA LATERAL CINZA NATIVA DO STREAMLIT */
+    [data-testid="stSidebar"] {
+        display: none !important;
+        width: 0px !important;
     }
-    .block-container { 
-        padding-top: 1rem !important; 
-        padding-bottom: 0rem !important;
-    }
-    .header-box-real { 
-        background-color: #0f172a !important; 
-        border: 1px solid #1e293b !important; 
-        border-radius: 8px !important; 
-        padding: 14px 20px !important; 
-        margin-bottom: 15px !important; 
-    }
-    .subtitulo-bloco-real { 
-        font-size: 13px !important; 
-        font-weight: bold !important; 
-        color: #60a5fa !important; 
-        margin-bottom: 15px; 
-        text-transform: uppercase; 
-    }
-    .kpi-box { 
-        background: #0f172a; 
-        padding: 12px 15px; 
-        border-radius: 8px; 
-        border: 1px solid #1e293b; 
-        text-align: center; 
-    }
-    /* Estilização para o botão mestre em gradiente verde */
-    div.stButton > button {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
-        color: white !important;
-        font-weight: bold !important;
-        font-size: 14px !important;
-        border: 2px solid #1e293b !important;
-        padding: 12px 15px !important;
-        border-radius: 6px !important;
+    [data-testid="stHeader"] { display: none !important; }
+    
+    /* Recorta o contêiner principal para usar 100% do monitor livremente */
+    .stMainBlockContainer {
+        max-width: 100% !important;
         width: 100% !important;
-        cursor: pointer !important;
     }
+
+    /* Caixas centrais */
+    .header-box-real { background-color: #0f172a !important; border: 1px solid #1e293b !important; border-radius: 8px !important; padding: 12px 18px !important; margin-bottom: 15px !important; }
+    .kpi-box { background: #0f172a; padding: 10px 15px; border-radius: 8px; border: 1px solid #1e293b; text-align: center; }
 </style>
 """, unsafe_allow_html=True)
 
-# Divisão exata das colunas paralelas na horizontal (Clone do Leonardo AI)
+# Interface do Painel Central Geral em 2 Colunas Livres de amarras lógicas
 col_centro, col_direita = st.columns([1.4, 1.0])
 
 with col_centro:
-    st.markdown('<div class="header-box-real">👤 Comandante: <b>José Marques</b> | Mapeamento de Mercado PRO</div>', unsafe_allow_html=True)
-    st.markdown('<p class="subtitulo-bloco-real">MÓDULO 1: RADAR DE PRODUTOS [FILTRO XEQUE-MATE]</p>', unsafe_allow_html=True)
+    st.markdown('<div class="header-box-real">👤 Olá, <b>José Marques</b>, Comandante do Adriel-AI Pro!</div>', unsafe_allow_html=True)
+    st.markdown("### 🎛️ CENTRAL OPERACIONAL SAAS MASTER")
+    st.write("Sua nova infraestrutura modular está 100% ativa e limpa de travas cinzas. Use o menu do seu navegador ou as chaves síncronas para operar o tráfego.")
     
-    # Banco de dados original recuperado por extenso com as comissões
-    dados_tabela = {
-        "Name": ["Sugar Defender", "Java Burn", "Puravive", "Prodentim", "GlucoBerry", "Citrus Burn", "Metanail Complex"],
-        "Plataforma": ["BuyGoods 🇺🇸", "ClickBank 🇺🇸", "ClickBank 🇺🇸", "BuyGoods 🇺🇸", "Hotmart 🇧🇷", "ClickBank 🇺🇸", "BuyGoods 🇺🇸"],
-        "Comissão": ["$ 118.20", "$ 135.00", "$ 142.50", "$ 125.00", "R$ 247,00", "$ 95.00", "$ 107.40"],
-        "Veredito da IA": ["APROVADO (Risco Baixo)"] * 7
-    }
-    st.dataframe(pd.DataFrame(dados_tabela), use_container_width=True, hide_index=True)
-    
-    st.write("")
-    if st.button("📄 [BAIXAR PLANILHA DE INTELIGÊNCIA EM LOTE .CSV]", key="btn_radar_csv_inside"):
-        st.success("✅ Download processado! Tabela de mineração salva com sucesso.")
-
 with col_direita:
-    st.markdown('<div class="header-box-real" style="text-align: right;">Filtro Especial: <b>Top 22 Ativos</b></div>', unsafe_allow_html=True)
-    
-    col_mini1, col_mini2 = st.columns(2)
-    with col_mini1: 
-        st.markdown('<div class="kpi-box"><span style="font-size:11px;color:#64748b;font-weight:bold;">🔥 CLIQUES HOJE</span><br><span style="font-size:20px;color:#00FF87;font-weight:800;">14.250 mil</span></div>', unsafe_allow_html=True)
-    with col_mini2: 
-        st.markdown('<div class="kpi-box"><span style="font-size:11px;color:#64748b;font-weight:bold;">📡 OFERTAS ATIVAS</span><br><span style="font-size:20px;color:#00E5FF;font-weight:800;">1.840 mil</span></div>', unsafe_allow_html=True)
-        
-    st.write("---")
-    st.info("🔥 **Módulo Espião Operando**\n\nVarredura contínua rastreando lotes de Gravidade e Temperatura acima de 140+ nas redes dos EUA.")
+    st.markdown('<div class="header-box-real" style="text-align: right;">🟢 Licença PRO: <span style="color:#00FF87; font-weight:bold;">Ativa e Vitalícia</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="kpi-box"><span style="font-size:11px;color:#64748b;font-weight:bold;">🔥 STATUS DO LEILÃO</span><br><span style="font-size:20px;color:#00FF87;font-weight:800;">SÍNCRONO 🟢</span></div>', unsafe_allow_html=True)
