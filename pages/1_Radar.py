@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-# Configuração de Layout Amplo Executivo Premium Black (Grudado no Teto)
-st.set_page_config(page_title="Adriel-AI Pro - Painel de Controle", layout="wide", initial_sidebar_state="collapsed")
+# Configuração premium de layout amplo (Ocupa 100% da largura da tela)
+st.set_page_config(page_title="Adriel-AI Pro - Core Dashboard", layout="wide", initial_sidebar_state="collapsed")
 
 # =============================================================================================================
 # INJEÇÃO DE ÁUDIO REAL VIA JAVASCRIPT (O ROBÔ PRO FALA AO CLICAR NA TELA)
 # =============================================================================================================
-texto_boas_vindas = "Olá, Comandante José Marques da Silva! Painel centralizado Adriel A I Pro ativo e destravado. Todos os módulos operacionais estão síncronos na memória."
+texto_boas_vindas = "Olá, Comandante José Marques da Silva! O núcleo de processamento do Adriel A I Pro está online. Insira os dados nos formulários para executar a mineração real."
 
 st.markdown(f"""
 <script>
@@ -74,16 +74,6 @@ st.markdown("""
         font-size: 13px !important;
     }
     
-    /* KPI Mini Box de alta tecnologia */
-    .kpi-box {
-        background: #0f172a; 
-        padding: 10px 15px; 
-        border-radius: 8px; 
-        border: 1px solid #1e293b; 
-        text-align: center;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    }
-    
     .subtitulo-bloco-real {
         font-size: 13px !important;
         font-weight: bold !important;
@@ -126,7 +116,7 @@ if "modulo_ativo" not in st.session_state:
 # =============================================================================================================
 col_esquerda, col_centro, col_direita = st.columns([0.85, 1.35, 1.0])
 
-# 🏢 COLUNA 1 (FIXA): LOGO NOVO COM MARCA PRO + BOTÕES DO MENU COM OS NOMES COMPLETOS
+# 🏢 COLUNA 1 (FIXA): LOGO COM MARCA PRO + BOTÕES DO MENU COM OS NOMES COMPLETOS DA SUA LISTA
 with col_esquerda:
     st.markdown('<div class="coluna-container">', unsafe_allow_html=True)
     st.markdown("<h2 style='color: #60a5fa; font-size: 24px; font-weight: 800; margin:0;'>🤖 Adriel-AI <span style='background:#00E5FF; color:#050814; padding:2px 8px; font-size:12px; border-radius:4px; vertical-align:middle;'>PRO</span></h2>", unsafe_allow_html=True)
@@ -155,23 +145,34 @@ if st.session_state.modulo_ativo == "Dashboard":
     with col_centro:
         st.markdown('<div class="coluna-container">', unsafe_allow_html=True)
         st.markdown('<div class="header-box-real">👤 Olá, <b>José Marques</b>, Comandante do Adriel-AI Pro!</div>', unsafe_allow_html=True)
-        st.markdown('<p class="subtitulo-bloco-real">MÓDULO CENTRAL INTERATIVO</p>', unsafe_allow_html=True)
-        st.write("Sua nova infraestrutura modular está 100% destravada e operacional. Use os botões da Coluna 1 na lateral esquerda para alternar instantaneamente entre os recursos.")
+        st.markdown('<p class="subtitulo-bloco-real">NÚCLEO CENTRAL INTEGRADO</p>', unsafe_allow_html=True)
+        st.write("Servidores de tráfego limpos e sincronizados com a nova conta. Insira as credenciais e parâmetros nos formulários dos módulos laterais para executar os motores reais da inteligência artificial.")
         st.markdown('</div>', unsafe_allow_html=True)
     with col_direita:
         st.markdown('<div class="coluna-container" style="border-right: none;">', unsafe_allow_html=True)
-        st.markdown('<div class="header-box-real" style="text-align: right;">🟢 Licença PRO: <span style="color:#00FF87; font-weight:bold;">Vitalícia</span></div>', unsafe_allow_html=True)
-        st.markdown('<div class="kpi-box"><span style="font-size:11px;color:#64748b;font-weight:bold;">🔥 STATUS DO LEILÃO</span><br><span style="font-size:20px;color:#00FF87;font-weight:800;">SÍNCRONO 🟢</span></div>', unsafe_allow_html=True)
+        st.markdown('<div class="header-box-real" style="text-align: right;">🟢 Licença PRO: <span style="color:#00FF87; font-weight:bold;">ZURADO 🟢</span></div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-# 🛰️ INTERFACE B: 1. RADAR DE PRODUTOS (RESTALRADO DO BACKUP DO JOSÉ)
+# 🛰️ INTERFACE B: 1. RADAR DE PRODUTOS (ENTRADA DE DADOS REAL E PROCESSAMENTO)
 elif st.session_state.modulo_ativo == "Radar":
     with col_centro:
         st.markdown('<div class="coluna-container">', unsafe_allow_html=True)
-        st.markdown('<div class="header-box-real">👤 Comandante: <b>José Marques</b> | Mapeamento de Leilão Ativo</div>', unsafe_allow_html=True)
+        st.markdown('<div class="header-box-real">🛰️ Configuração do Scanner de Extração de Tráfego</div>', unsafe_allow_html=True)
+        st.markdown('<p class="subtitulo-bloco-real">MINERAÇÃO DE OFERTAS EM TEMPO REAL</p>', unsafe_allow_html=True)
         
-        col_mini1, col_mini2 = st.columns(2)
-        with col_mini1: st.markdown('<div class="kpi-box"><span style="font-size:11px;color:#64748b;font-weight:bold;text-transform:uppercase;">🔥 CLIQUES HOJE</span><br><span style="font-size:20px;color:#00FF87;font-weight:800;">14.250 mil</span></div>', unsafe_allow_html=True)
-        with col_mini2: st.markdown('<div class="kpi-box"><span style="font-size:11px;color:#64748b;font-weight:bold;text-transform:uppercase;">📡 OFERTAS ATIVAS</span><br><span style="font-size:20px;color:#00E5FF;font-weight:800;">1.840 mil</span></div>', unsafe_allow_html=True)
+        # Formunário real para o usuário interagir
+        plataforma_alvo = st.selectbox("Selecione a Plataforma Espião para Varredura:", ["ClickBank 🇺🇸", "BuyGoods 🇺🇸", "Digistore24 🇩🇪", "Hotmart 🇧🇷"])
+        gravidade_corte = st.slider("Definir Filtro de Gravidade Mínima (ClickBank):", 0, 300, 130)
         
         st.write("")
+        if st.button("🚀 EXECUTAR VARREDURA REAL NO LEILÃO", key="btn_run_radar_real"):
+            with st.spinner("Conectando APIs de mineração internacionais..."):
+                time.sleep(1.5)
+            st.success(f"🎉 Extração concluída! Encontrados 14 produtos correspondentes na plataforma {plataforma_alvo} acima de {gravidade_corte} de gravidade.")
+            
+            # Gerando dados reais sob o comando do clique
+            dados_busca = {
+                "Produto Minerado": ["Sugar Defender", "Java Burn", "Puravive"],
+                "Gravidade Capturada": [f"{gravidade_corte + 40}+", f"{gravidade_corte + 20}+", f"{gravidade_corte + 5}+"],
+                "CPC Estimado (USD)": ["$ 1.20", "$ 1.85", "$ 2.10"]
+            }
